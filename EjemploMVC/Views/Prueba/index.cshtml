@@ -1,0 +1,41 @@
+﻿@model EjemploMVC.Models.Calculo
+
+@{
+    ViewBag.Title = "index";
+}
+
+
+<h2>Operaciones</h2>
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.numero1, new { @class = "control-label" });
+        @Html.TextBoxFor(Model => Model.numero1, new { @class = "form-control" });
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.numero2, new { @class = "control-label" });
+        @Html.TextBoxFor(Model => Model.numero2, new { @class = "form-control" });
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Suma" class="btn btn-success" name="operacion" />
+        <input type="submit" value="Resta" class="btn btn-success" name="operacion" />
+        <input type="submit" value="División" class="btn btn-success" name="operacion" />
+        <input type="submit" value="Multiplicación" class="btn btn-success" name="operacion" />
+    </div>
+}
+
+<br>
+<br>
+   @if (ViewBag.resultado != null) { 
+       
+       <p>Resultado de la @ViewBag.operacion:&nbsp;@ViewBag.resultado</p>
+
+   }
+<br>
+<br>

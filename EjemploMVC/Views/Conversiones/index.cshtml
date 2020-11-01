@@ -1,0 +1,39 @@
+﻿@model EjemploMVC.Models.Conversion
+
+@{
+    ViewBag.Title = "index";
+}
+
+<h2>Conversiones</h2>
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.valor1, new { @class = "control-label" })
+            @Html.TextBoxFor(Model => Model.valor1, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Celcius" class="btn btn-success" name="conversion" />
+            <input type="submit" value="Kelvin" class="btn btn-success" name="conversion" />
+            <input type="submit" value="Libras" class="btn btn-success" name="conversion" />
+            <input type="submit" value="Kilogramos" class="btn btn-success" name="conversion" />
+            <input type="submit" value="Metros" class="btn btn-success" name="conversion" />
+            <input type="submit" value="Pulgadas" class="btn btn-success" name="conversion" />
+        </div>
+
+}
+
+<br>
+<br>
+@if (ViewBag.resultado != null)
+{
+
+    <p>Resultado de la conversión:&nbsp;@ViewBag.resultado @ViewBag.conversion</p>
+
+}
+<br>
+<br>
